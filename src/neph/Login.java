@@ -13,6 +13,11 @@ public class Login extends JFrame {
 
     // Create the frame
     public Login(){
+        try{
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e1){
+            e1.printStackTrace();
+        }
         //JPanel
         JPanel contentPane;
         setResizable(false);
@@ -76,7 +81,7 @@ public class Login extends JFrame {
     /** Login**/
     private void login(String name, String address, int port){
         dispose();
-        System.out.println(name + " " + address + " " + port);
+        new Client(name, address, port);
     }
 
     //Launch App
