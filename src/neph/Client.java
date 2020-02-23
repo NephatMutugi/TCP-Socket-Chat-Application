@@ -36,19 +36,41 @@ public class Client extends JFrame {
 
         //GridBagLayout
         GridBagLayout mGridBagLayout = new GridBagLayout();
-        mGridBagLayout.columnWidths = new int[]{15, 860, 5}; //Sum = 880
+        mGridBagLayout.columnWidths = new int[]{28, 815, 30, 7}; //Sum = 880
         mGridBagLayout.rowHeights = new int[]{35, 475, 40}; //Sum = 550
         mGridBagLayout.columnWeights = new double[]{1.0, Double.MIN_VALUE};
         mGridBagLayout.rowWeights = new double[]{1.0, Double.MIN_VALUE};
         mContentPane.setLayout(mGridBagLayout);
 
+        //History Field
         JTextArea mHistory = new JTextArea();
+        mHistory.setEditable(false);
         GridBagConstraints mGBCHistory = new GridBagConstraints();
+        mGBCHistory.insets = new Insets(0,20,20,20);
         mGBCHistory.fill = GridBagConstraints.BOTH;
         mGBCHistory.gridx = 1;
         mGBCHistory.gridy = 1;
+        mGBCHistory.gridwidth = 2;
         mContentPane.add(mHistory,mGBCHistory);
 
+        //Message Text Field
+        JTextField mMessage = new JTextField();
+        GridBagConstraints mGBCMessage = new GridBagConstraints();
+        mGBCMessage.insets = new Insets(0,0,0,5);
+        mGBCMessage.fill = GridBagConstraints.HORIZONTAL;
+        mGBCMessage.gridx = 1;
+        mGBCMessage.gridy = 2;
+        mContentPane.add(mMessage, mGBCMessage);
+        mMessage.setColumns(10);
+
+        JButton mBtnSend = new JButton("Send");
+        GridBagConstraints mGBCBtnSend = new GridBagConstraints();
+        mGBCBtnSend.insets = new Insets(0,0,0,5);
+        mGBCBtnSend.gridx = 2;
+        mGBCBtnSend.gridy = 2;
+        mContentPane.add(mBtnSend, mGBCBtnSend);
+
         setVisible(true);
+        mMessage.requestFocusInWindow();
     }
 }
