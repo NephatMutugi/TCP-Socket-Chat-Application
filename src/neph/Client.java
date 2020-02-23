@@ -27,6 +27,15 @@ public class Client extends JFrame {
         mContentPane.setBorder(new EmptyBorder(5,5,5,5));
         mContentPane.setLayout(new BorderLayout(0,0));
         setContentPane(mContentPane);
+
+        //GridBagLayout
+        GridBagLayout mGridBagLayout = new GridBagLayout();
+        mGridBagLayout.columnWidths = new int[]{0};
+        mGridBagLayout.rowHeights = new int[]{0};
+        mGridBagLayout.columnWeights = new double[]{Double.MIN_VALUE};
+        mGridBagLayout.rowWeights = new double[]{Double.MIN_VALUE};
+        mContentPane.setLayout(mGridBagLayout);
+
         setVisible(true);
     }
 }
