@@ -6,9 +6,9 @@ import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Client extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -34,20 +34,16 @@ public class Client extends JFrame {
 
 
     private boolean openConnection(String address, int port){
-            mSocket = new Socket();
         try {
+            mSocket = new Socket("127.0.0.1",port);
             mAddress = InetAddress.getByName(address);
-        } catch (UnknownHostException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
 
         return true;
     }
-
-
-
-
 
 
     private void createWindow(){
